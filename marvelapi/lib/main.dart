@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Api marvel',
       theme: ThemeData(
         primarySwatch: Colors.red1,
         scaffoldBackgroundColor: Colors.black,
@@ -43,33 +44,33 @@ class _mainApiMarvel extends State<MainApiMarvel> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Card(
-            color: Colors.red1,
-            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: Column(children: const [
-              Text(
-                'MARVEL',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: Colors.white),
+          SizedBox(
+            height: 75, // Establece la altura del contenedor
+            width: 250, // Establece el ancho del contenedor
+            child: Card(
+              color: Colors.red1,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    'MARVEL',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 40, color: Colors.white),
+                  ),
+                ],
               ),
-            ]),
+            ),
           ),
-          SizedBox(height: 30),
-          Card(
-            color: Colors.grey,
-            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: Column(children: const [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                child: Text(
-                  'Marvel es una compañía de entretenimiento que produce películas, series, cómics y mucho más.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
-              ),
-            ]),
+          SizedBox(height: 150),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+            child: Text(
+              'Marvel es una compañía de entretenimiento que produce películas, series, cómics y mucho más.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 15, color: Colors.white),
+            ),
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 150),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
@@ -78,7 +79,14 @@ class _mainApiMarvel extends State<MainApiMarvel> {
                     builder: (context) => const TraerPersonajes()),
               );
             },
-            child: Text('Ver personajes'),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(
+                  Colors.grey), // Establece el color de fondo del botón en azul
+            ),
+            child: Text(
+              'Ver personajes',
+              style: TextStyle(fontSize: 20, color: Colors.black),
+            ),
           ),
         ],
       ),

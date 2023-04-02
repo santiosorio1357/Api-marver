@@ -15,13 +15,13 @@ class TraerPersonajes extends StatefulWidget {
 class comoEstadoTraerPersonajes extends State<TraerPersonajes> {
   List<dynamic> characters = [];
 
-  Future<void> getCharacters() async {
+  Future<void> getPersonajes() async {
     const ts = '1357';
     const apiKey = '9f8e0be4a1e4cb5a940e68773a15f5e7';
     const hash = '8834baeaea72ef756e78e5bba0c37dbe';
 
     const url =
-        'https://gateway.marvel.com:443/v1/public/characters?ts=$ts&apikey=$apiKey&hash=$hash';
+        'https://gateway.marvel.com:443/v1/public/characters?ts=$ts&apikey=$apiKey&hash=$hash&limit=20&offset=1';
 
     final response = await http.get(Uri.parse(url));
 
@@ -38,13 +38,14 @@ class comoEstadoTraerPersonajes extends State<TraerPersonajes> {
   @override
   void initState() {
     super.initState();
-    getCharacters();
+    getPersonajes();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+      appBar: AppBar(title: const Text("Lista de personajes")),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       body: Center(
         child: characters.isEmpty
             ? const CircularProgressIndicator()
@@ -62,11 +63,17 @@ class comoEstadoTraerPersonajes extends State<TraerPersonajes> {
                       guardarInfoPersonaje(index);
                     },
                     child: Card(
+                      color: Colors.grey,
                       child: ListTile(
                         leading: CircleAvatar(
                           backgroundImage: NetworkImage(thumbnail),
+                          radius: 45,
                         ),
-                        title: Text(name),
+                        title: Text(
+                          name,
+                          style: const TextStyle(
+                              fontSize: 15, color: Colors.black),
+                        ),
                         onTap: () {
                           guardarInfoPersonaje(index);
                         },
@@ -110,12 +117,11 @@ class comoEstadoTraerPersonajes extends State<TraerPersonajes> {
         seriesCount: series,
         storiesCount: stories,
         eventsCount: events,
-        firstThreeSeriesNames:
-            seriesNames); 
+        firstThreeSeriesNames: seriesNames);
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => detallesPersonajes(
+          builder: (context) => infoPersonaje(
                 character: selectedCharacter,
               )),
     );
