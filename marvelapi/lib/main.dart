@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, use_key_in_widget_constructors
+// ignore_for_file: camel_case_types, use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:marvelapi/pages/traerPersonajes.dart';
@@ -39,6 +39,6 @@ class _mainApiMarvel extends State<MainApiMarvel> {
           centerTitle: true,
           title: const Text("MARVEL"),
         ),
-        body: listaPersonajes());
+        body: const TraerPersonajes());
   }
 }
