@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:marvelapi/pages/traerPersonajes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,12 +35,10 @@ class _mainApiMarvel extends State<MainApiMarvel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("MARVEL"),
-      ),
-      //body: listaPersonajes());
-    ); 
-    
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text("MARVEL"),
+        ),
+        body: listaPersonajes());
   }
 }
