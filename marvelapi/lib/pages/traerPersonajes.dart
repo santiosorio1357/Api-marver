@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:marvelapi/controllers/personaje.dart';
+import 'package:marvelapi/pages/infoPersonaje.dart';
 
 class TraerPersonajes extends StatefulWidget {
   const TraerPersonajes({super.key});
@@ -110,13 +111,13 @@ class comoEstadoTraerPersonajes extends State<TraerPersonajes> {
         storiesCount: stories,
         eventsCount: events,
         firstThreeSeriesNames:
-            seriesNames); /*
+            seriesNames); 
     Navigator.push(
       context,
       MaterialPageRoute(
           builder: (context) => detallesPersonajes(
                 character: selectedCharacter,
               )),
-    );*/
+    );
   }
 }

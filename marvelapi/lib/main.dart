@@ -35,10 +35,53 @@ class _mainApiMarvel extends State<MainApiMarvel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("MARVEL"),
-        ),
-        body: const TraerPersonajes());
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("APP Santiago Osorio"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Card(
+            color: Colors.red1,
+            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: Column(children: const [
+              Text(
+                'MARVEL',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ]),
+          ),
+          SizedBox(height: 30),
+          Card(
+            color: Colors.grey,
+            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: Column(children: const [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                child: Text(
+                  'Marvel es una compañía de entretenimiento que produce películas, series, cómics y mucho más.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+              ),
+            ]),
+          ),
+          SizedBox(height: 50),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const TraerPersonajes()),
+              );
+            },
+            child: Text('Ver personajes'),
+          ),
+        ],
+      ),
+    );
   }
 }
